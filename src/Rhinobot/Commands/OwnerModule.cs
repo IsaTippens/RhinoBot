@@ -12,7 +12,7 @@ public class OwnerModule : ModuleBase<SocketCommandContext>
     {
         await ReplyAsync("Updating...");
         var command = "sh";
-        var myBatchFile = "./home/isatippens2/rhinohome/RhinoBot/update";
+        var myBatchFile = "/home/isatippens2/rhinohome/RhinoBot/update";
         var argss = $"{myBatchFile}"; 
 
         var processInfo = new ProcessStartInfo();
