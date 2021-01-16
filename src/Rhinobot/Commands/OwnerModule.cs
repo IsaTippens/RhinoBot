@@ -11,12 +11,14 @@ public class OwnerModule : ModuleBase<SocketCommandContext>
     public async Task UpdateAsync()
     {
         await ReplyAsync("Updating...");
-        var p = Process.Start("./home/isatippens2/rhinohome/RhinoBot/update");
-    }
+        var command = "sh";
+        var myBatchFile = "./home/isatippens2/rhinohome/RhinoBot/update";
+        var argss = $"{myBatchFile}"; 
 
-    [Command("Oof")]
-    public async Task OofAsync()
-    {
-        await ReplyAsync("Oof the update is here! :D");
+        var processInfo = new ProcessStartInfo();
+        processInfo.UseShellExecute = false;
+        processInfo.FileName = command;   // 'sh' for bash 
+        processInfo.Arguments = argss;  
+        process = Process.Start(processInfo);
     }
 }
