@@ -26,6 +26,6 @@ public class OwnerModule : ModuleBase<SocketCommandContext>
     [Command("Oof")]
     public async Task OofAsync()
     {
-        await ReplyAsync("Oof looks like i got updated lolz xd :D");
+        await ReplyAsync("The final oof");
     }
 }
