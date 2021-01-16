@@ -20,7 +20,7 @@ public class OwnerModule : ModuleBase<SocketCommandContext>
         processInfo.FileName = command;   // 'sh' for bash 
         processInfo.Arguments = argss;  
         Process.Start(processInfo);
-        System.Environment.Exit(0);
+        Process.GetCurrentProcess().Kill();
     }
 
     [Command("Oof")]
