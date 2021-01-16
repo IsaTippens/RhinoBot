@@ -19,12 +19,13 @@ public class OwnerModule : ModuleBase<SocketCommandContext>
         processInfo.UseShellExecute = false;
         processInfo.FileName = command;   // 'sh' for bash 
         processInfo.Arguments = argss;  
-        var process = Process.Start(processInfo);
+        Process.Start(processInfo);
+        System.Environment.Exit(0);
     }
 
     [Command("Oof")]
     public async Task OofAsync()
     {
-        await ReplyAsync("Hey imma oof real quick lol! :D");
+        await ReplyAsync("Oof looks like i got updated lolz xd :D");
     }
 }
