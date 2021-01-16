@@ -12,7 +12,7 @@ public class OwnerModule : ModuleBase<SocketCommandContext>
     {
         await ReplyAsync("Updating...");
         var command = "sh";
-        var myBatchFile = "/home/isatippens2/rhinohome/RhinoBot/update";
+        var myBatchFile = "/home/isatippens2/rhinohome/RhinoBot/stubUpdate";
         var argss = $"{myBatchFile}"; 
 
         var processInfo = new ProcessStartInfo();
@@ -25,6 +25,6 @@ public class OwnerModule : ModuleBase<SocketCommandContext>
     [Command("Oof")]
     public async Task OofAsync()
     {
-        await ReplyAsync("Oof the update is here! :D");
+        await ReplyAsync("Hey imma oof real quick lol! :D");
     }
 }
