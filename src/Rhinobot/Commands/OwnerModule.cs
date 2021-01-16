@@ -11,12 +11,7 @@ public class OwnerModule : ModuleBase<SocketCommandContext>
     public async Task UpdateAsync()
     {
         await ReplyAsync("Updating...");
-        var p = Process.Start("/home/isatippens2/rhinohome/RhinoBot/update");
+        var p = Process.Start("./home/isatippens2/rhinohome/RhinoBot/update");
     }
 
-    [Command("Oof")]
-    public async Task UpdateAsync()
-    {
-        await ReplyAsync("Oof the update is here! :D");
-    }
 }
