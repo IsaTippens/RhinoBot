@@ -1,5 +1,5 @@
 using System.Threading.Tasks;
-using System.Diagnostics.Process;
+using System.Diagnostics;
 
 using Discord;
 using Discord.Commands;
@@ -8,9 +8,10 @@ using Discord.Commands;
 public class OwnerModule : ModuleBase<SocketCommandContext>
 {
     [Command("Update")]
-    public async Task UpdateAsync([Remainder] string message = null)
+    public async Task UpdateAsync()
     {
         await ReplyAsync("Updating...");
         var p = Process.Start("/home/isatippens2/rhinohome/RhinoBot/update");
     }
+
 }
