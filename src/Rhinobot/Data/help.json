@@ -1,0 +1,7 @@
+{
+    "Fun" : {
+        "Say" : {
+            "Usage" : "``RhinoBot say \"message here\""
+        }
+    }
+}
