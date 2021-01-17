@@ -34,8 +34,8 @@ public class FunModule : InteractiveBase
             "Prepares Attempt #3",
             "Pulls out dice rolling arm",
             "Yeeeet"
-        };
-        if (Randomiser.RNG.Next(0, 1000) > 850)
+            };
+            if (Randomiser.RNG.Next(0, 1000) > 850)
             {
                 await ReplyAsync($"* {comments[comment]} *");
             }
@@ -43,7 +43,15 @@ public class FunModule : InteractiveBase
             string result = Randomiser.RNG.Next(0, 2) == 0 ? "Heads" : "Tails";
             await ReplyAsync($"<@{user.Id}> you landed {result}");
         }
+
+        [Command("table")]
+        public async Task FlipTable()
+        {
+            await ReplyAsync("(ﾉ≧∇≦)ﾉ ﾐ ┸━┸");
+        }
     }
+
+
 
     [Command("Roll")]
     public async Task RollDie(int sides)
