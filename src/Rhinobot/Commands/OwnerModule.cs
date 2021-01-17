@@ -26,6 +26,6 @@ public class OwnerModule : ModuleBase<SocketCommandContext>
     [Command("Oof")]
     public async Task OofAsync()
     {
-        await ReplyAsync("The final oof");
+        await ReplyAsync("The biggest rhino gets the largest oof");
     }
 }
