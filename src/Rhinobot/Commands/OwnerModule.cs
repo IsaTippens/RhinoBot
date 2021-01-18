@@ -13,14 +13,28 @@ public class OwnerModule : ModuleBase<SocketCommandContext>
         await ReplyAsync("Updating...");
         var command = "sh";
         var myBatchFile = "/home/isatippens2/rhinohome/RhinoBot/stubUpdate";
-        var argss = $"{myBatchFile}"; 
+        var argss = $"{myBatchFile}";
 
         var processInfo = new ProcessStartInfo();
         processInfo.UseShellExecute = false;
         processInfo.FileName = command;   // 'sh' for bash 
-        processInfo.Arguments = argss;  
+        processInfo.Arguments = argss;
         Process.Start(processInfo);
         Process.GetCurrentProcess().Kill();
+    }
+
+    [Command("ShutDown")]
+    [Alias("shut down")]
+    public async Task ShutDownAsync()
+    {
+        await ReplyAsync("Shutting Down");
+        Process.GetCurrentProcess().Kill();
+    }
+
+    [Command("Pokey")]
+    public async Task PokeyAsync()
+    {
+        await ReplyAsync("PokeyMahn!");
     }
 
     [Command("Oof")]
