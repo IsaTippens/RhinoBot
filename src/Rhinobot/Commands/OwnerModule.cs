@@ -31,7 +31,6 @@ public class OwnerModule : InteractiveBase
     [Alias("shut down")]
     public async Task ShutDownAsync()
     {   
-        var message = Context.Message;
         string keys ="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
         string phrase = "";
         for (int i = 0; i < 5; i++)
@@ -40,10 +39,10 @@ public class OwnerModule : InteractiveBase
 
         var reply = await NextMessageAsync(timeout: TimeSpan.FromMinutes(1.0));
         if (reply == null || reply.Content != phrase) {
-            await message.AddReactionAsync(new Emoji("❌"));
+            await  reply.AddReactionAsync(new Emoji("❌"));
             return;
         }
-        await message.AddReactionAsync(new Emoji("✅"));
+        await reply.AddReactionAsync(new Emoji("✅"));
         await ReplyAsync("Shutting down...");
         Process.GetCurrentProcess().Kill();
     }
