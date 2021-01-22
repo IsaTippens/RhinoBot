@@ -36,15 +36,7 @@ namespace RhinoBot.Services
             var message = messageParam as SocketUserMessage;
             if (message == null) return;
 
-            int argPos = 0;
-            if (ProcessMessage(ref argPos, message) == -1)
-            {
-                return;
-            }
-
-
-
-            var context = new SocketCommandContext(_client, message);
+            
             var msg = messageParam.Content.ToLower();
 
             if (msg.Contains("i'm down") || msg.Contains("im down") || msg.Contains("i am down"))
@@ -52,6 +44,16 @@ namespace RhinoBot.Services
                 await messageParam.Channel.SendMessageAsync("syndrome");
                 return;
             }
+
+            int argPos = 0;
+            if (ProcessMessage(ref argPos, message) == -1)
+            {
+                return;
+            }
+
+            var context = new SocketCommandContext(_client, message);
+
+            
             await _commands.ExecuteAsync(
                 context: context,
                 argPos: argPos,
