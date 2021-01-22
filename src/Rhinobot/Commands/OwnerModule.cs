@@ -31,16 +31,16 @@ public class OwnerModule : InteractiveBase
     [Alias("shut down")]
     public async Task ShutDownAsync()
     {   
+        var message = Context.Message;
         string keys ="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
         string phrase = "";
         for (int i = 0; i < 5; i++)
             phrase += keys[Randomiser.RNG.Next(0, keys.Length)];
         await ReplyAsync($"Reply with {phrase} to confirm shut down");
 
-        var message = Context.Message;
         var reply = await NextMessageAsync(timeout: TimeSpan.FromMinutes(1.0));
         if (reply == null || reply.Content != phrase) {
-            await message.AddReactionAsync(new Emoji("❌"));
+            await message.AddReactionAsync(new Emoji("🤔"));
             return;
         }
         await message.AddReactionAsync(new Emoji("✅"));
