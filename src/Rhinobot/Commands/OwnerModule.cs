@@ -1,11 +1,15 @@
 using System.Threading.Tasks;
+using System;
 using System.Diagnostics;
 
 using Discord;
 using Discord.Commands;
+using Discord.Addons.Interactive;
+
+using RhinoBot.Core.Utilities;
 
 [RequireOwner()]
-public class OwnerModule : ModuleBase<SocketCommandContext>
+public class OwnerModule : InteractiveBase
 {
     [Command("Update")]
     public async Task UpdateAsync()
@@ -26,8 +30,21 @@ public class OwnerModule : ModuleBase<SocketCommandContext>
     [Command("ShutDown")]
     [Alias("shut down")]
     public async Task ShutDownAsync()
-    {
-        await ReplyAsync("Shutting Down");
+    {   
+        string keys ="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        string phrase = "";
+        for (int i = 0; i < 5; i++)
+            phrase += keys[Randomiser.RNG.Next(0, keys.Length)];
+        await ReplyAsync($"Reply with {phrase} to confirm shut down");
+
+        var message = Context.Message;
+        var reply = await NextMessageAsync(timeout: TimeSpan.FromMinutes(1.0));
+        if (reply == null || reply.Content != phrase) {
+            await message.AddReactionAsync(new Emoji("❌"));
+            return;
+        }
+        await message.AddReactionAsync(new Emoji("✅"));
+        await ReplyAsync("Shutting down...");
         Process.GetCurrentProcess().Kill();
     }
 
