@@ -40,7 +40,7 @@ public class OwnerModule : InteractiveBase
 
         var reply = await NextMessageAsync(timeout: TimeSpan.FromMinutes(1.0));
         if (reply == null || reply.Content != phrase) {
-            await message.AddReactionAsync(new Emoji("🤔"));
+            await message.AddReactionAsync(new Emoji("❌"));
             return;
         }
         await message.AddReactionAsync(new Emoji("✅"));
