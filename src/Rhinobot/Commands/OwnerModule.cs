@@ -27,7 +27,7 @@ public class OwnerModule : InteractiveBase
         Process.GetCurrentProcess().Kill();
     }
 
-    [Command("ShutDown")]
+    [Command("ShutDown", RunMode = RunMode.Async)]
     [Alias("shut down")]
     public async Task ShutDownAsync()
     {   
