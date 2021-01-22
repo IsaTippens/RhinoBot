@@ -45,14 +45,13 @@ namespace RhinoBot.Services
 
 
             var context = new SocketCommandContext(_client, message);
-            var msg = message.Content.ToLower();
+            var msg = messageParam.Content.ToLower();
 
-            if (msg.Contains("i'm down") || msg.Contains("im am down"))
+            if (msg.Contains("i'm down") || msg.Contains("im down") || msg.Contains("i am down"))
             {
-                var c = _client.GetChannel(context.Channel.Id) as IMessageChannel;
-                await c.SendMessageAsync("syndrome");
+                await messageParam.Channel.SendMessageAsync("syndrome");
+                return;
             }
-
             await _commands.ExecuteAsync(
                 context: context,
                 argPos: argPos,
