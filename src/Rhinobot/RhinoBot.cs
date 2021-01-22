@@ -8,6 +8,8 @@ using Discord.WebSocket;
 using Discord.Commands;
 using Discord.Addons.Interactive;
 
+using RhinoBot.Services;
+
 using RhinoBot.Core.Services;
 using RhinoBot.Core.Utilities;
 
