@@ -34,7 +34,9 @@ public class OwnerModule : InteractiveBase
         string keys ="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
         string phrase = "";
         for (int i = 0; i < 5; i++)
+        {
             phrase += keys[Randomiser.RNG.Next(0, keys.Length)];
+        }
         await ReplyAsync($"Reply with {phrase} to confirm shut down");
 
         var reply = await NextMessageAsync(timeout: TimeSpan.FromMinutes(1.0));
