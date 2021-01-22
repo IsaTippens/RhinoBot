@@ -7,6 +7,8 @@ using Discord;
 using Discord.Commands;
 using Discord.WebSocket;
 
+using RhinoBot.Core.Utilities;
+
 using Microsoft.Extensions.DependencyInjection;
 
 namespace RhinoBot.Services
@@ -38,11 +40,24 @@ namespace RhinoBot.Services
 
             
             var msg = messageParam.Content.ToLower();
-
-            if (msg.Contains("i'm down") || msg.Contains("im down") || msg.Contains("i am down"))
+            if (Randomiser.RNG.Next(0, 10) == 7) 
             {
-                await messageParam.Channel.SendMessageAsync("syndrome");
-                return;
+
+                if (msg.Contains("i'm down") || msg.Contains("im down") || msg.Contains("i am down"))
+                {
+                    await messageParam.Channel.SendMessageAsync("syndrome");
+                    return;
+                }
+                if (msg.Contains("nae nae"))
+                {
+                    await messageParam.Channel.SendMessageAsync("They got nae nae'd");
+                    return;
+                }
+                if (msg.Contains("am i gay") || msg.Contains("i am gay") || msg.Contains("im gay") || msg.Contains("i'm gay")) 
+                {
+                    await messageParam.Channel.SendMessageAsync("Yes you are!");
+                    return;
+                }
             }
 
             int argPos = 0;
