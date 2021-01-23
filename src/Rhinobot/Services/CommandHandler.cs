@@ -69,6 +69,11 @@ namespace RhinoBot.Services
                     await messageParam.Channel.SendMessageAsync("Hammer Time");
                     return;
                 }
+                if (msg.Contains("doggo") || msg.Contains("pupper")) 
+                {
+                    await messageParam.Channel.SendMessageAsync("OwO doggo");
+                    return;
+                }
             }
 
             int argPos = 0;
