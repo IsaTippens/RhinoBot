@@ -63,6 +63,12 @@ namespace RhinoBot.Services
                     await messageParam.Channel.SendMessageAsync("LIAMM!!!");
                     return;
                 }
+                
+                if (msg.Contains("banned") || msg.Contains("ban")) 
+                {
+                    await messageParam.Channel.SendMessageAsync("Hammer Time");
+                    return;
+                }
             }
 
             int argPos = 0;
