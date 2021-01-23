@@ -58,6 +58,11 @@ namespace RhinoBot.Services
                     await messageParam.Channel.SendMessageAsync("Yes you are!");
                     return;
                 }
+                if (msg.Contains("liam") || msg.Contains("lem") || msg.Contains("lemm") || msg.Contains("liamm")) 
+                {
+                    await messageParam.Channel.SendMessageAsync("LIAMM!!!");
+                    return;
+                }
             }
 
             int argPos = 0;
