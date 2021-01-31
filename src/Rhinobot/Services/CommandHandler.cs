@@ -82,8 +82,8 @@ namespace RhinoBot.Services
                     foreach (Match m in rx.Matches(msg))
                     {
                         int i = m.Index;
-                        var result = msg.Substring(i + 2, msg.Length);
-                        await messageParam.Channel.SendMessageAsync(result);
+                        var result = msg.Substring(i + 3);
+                        await messageParam.Channel.SendMessageAsync("Hi, " + result);
                         return;
                     }
                 }
@@ -94,8 +94,8 @@ namespace RhinoBot.Services
                     foreach (Match m in rx.Matches(msg))
                     {
                         int i = m.Index;
-                        var result = msg.Substring(i + 3, msg.Length);
-                        await messageParam.Channel.SendMessageAsync(result);
+                        var result = msg.Substring(i + 4);
+                        await messageParam.Channel.SendMessageAsync("Hi, " + result);
                         return;
                     }
                 }
