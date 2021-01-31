@@ -37,7 +37,7 @@ namespace RhinoBot.Services
         private async Task HandleCommandAsync(SocketMessage messageParam)
         {
             var message = messageParam as SocketUserMessage;
-            if (message == null) return;
+            if (message == null || message.Author.IsBot) return;
 
 
             var msg = messageParam.Content.ToLower();
@@ -59,9 +59,10 @@ namespace RhinoBot.Services
                     await messageParam.Channel.SendMessageAsync("Yes you are!");
                     return;
                 }
-                if (msg.Contains("liam") || msg.Contains("lem") || msg.Contains("lemm") || msg.Contains("liamm"))
+                if (msg.StartsWith("liam") || msg.StartsWith("lem") || msg.StartsWith("lemm") || msg.StartsWith("liamm"))
                 {
-                    await messageParam.Channel.SendMessageAsync("LIAMM!!!");
+                    if (Randomiser.RNG.Next(0, 100) > 60)
+                        await messageParam.Channel.SendMessageAsync("LIAMM!!!");
                     return;
                 }
 
