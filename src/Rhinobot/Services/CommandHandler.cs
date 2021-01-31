@@ -83,7 +83,7 @@ namespace RhinoBot.Services
                     {
                         int i = m.Index;
                         var result = msg.Substring(i + 3);
-                        await messageParam.Channel.SendMessageAsync("Hi, " + result);
+                        await messageParam.Channel.SendMessageAsync("Hi " + result);
                         return;
                     }
                 }
@@ -95,7 +95,7 @@ namespace RhinoBot.Services
                     {
                         int i = m.Index;
                         var result = msg.Substring(i + 4);
-                        await messageParam.Channel.SendMessageAsync("Hi, " + result);
+                        await messageParam.Channel.SendMessageAsync("Hi " + result);
                         return;
                     }
                 }
