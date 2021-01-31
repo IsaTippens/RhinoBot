@@ -1,4 +1,5 @@
 using System;
+using System.Text.RegularExpressions;
 using System.Reflection;
 using System.Threading;
 using System.Threading.Tasks;
@@ -38,9 +39,9 @@ namespace RhinoBot.Services
             var message = messageParam as SocketUserMessage;
             if (message == null) return;
 
-            
+
             var msg = messageParam.Content.ToLower();
-            if (Randomiser.RNG.Next(0, 4) == 3) 
+            if (Randomiser.RNG.Next(0, 4) == 3)
             {
 
                 if (msg.Contains("i'm down") || msg.Contains("im down") || msg.Contains("i am down"))
@@ -53,26 +54,50 @@ namespace RhinoBot.Services
                     await messageParam.Channel.SendMessageAsync("They got nae nae'd");
                     return;
                 }
-                if (msg.Contains("am i gay") || msg.Contains("i am gay") || msg.Contains("im gay") || msg.Contains("i'm gay")) 
+                if (msg.Contains("am i gay") || msg.Contains("i am gay") || msg.Contains("im gay") || msg.Contains("i'm gay"))
                 {
                     await messageParam.Channel.SendMessageAsync("Yes you are!");
                     return;
                 }
-                if (msg.Contains("liam") || msg.Contains("lem") || msg.Contains("lemm") || msg.Contains("liamm")) 
+                if (msg.Contains("liam") || msg.Contains("lem") || msg.Contains("lemm") || msg.Contains("liamm"))
                 {
                     await messageParam.Channel.SendMessageAsync("LIAMM!!!");
                     return;
                 }
-                
-                if (msg.Contains("banned") || msg.Contains("ban")) 
+
+                if (msg.Contains("banned") || msg.Contains("ban"))
                 {
                     await messageParam.Channel.SendMessageAsync("Hammer Time");
                     return;
                 }
-                if (msg.Contains("doggo") || msg.Contains("pupper")) 
+                if (msg.Contains("doggo") || msg.Contains("pupper"))
                 {
                     await messageParam.Channel.SendMessageAsync("OwO doggo");
                     return;
+                }
+
+                if (Regex.IsMatch(msg, @"\bim\b"))
+                {
+                    Regex rx = new Regex(@"\bim\b");
+                    foreach (Match m in rx.Matches(msg))
+                    {
+                        int i = m.Index;
+                        var result = msg.Substring(i + 2, msg.Length);
+                        await messageParam.Channel.SendMessageAsync(result);
+                        return;
+                    }
+                }
+
+                if (Regex.IsMatch(msg, @"\bi'm\b"))
+                {
+                    Regex rx = new Regex(@"\bi'm\b");
+                    foreach (Match m in rx.Matches(msg))
+                    {
+                        int i = m.Index;
+                        var result = msg.Substring(i + 3, msg.Length);
+                        await messageParam.Channel.SendMessageAsync(result);
+                        return;
+                    }
                 }
             }
 
@@ -84,7 +109,7 @@ namespace RhinoBot.Services
 
             var context = new SocketCommandContext(_client, message);
 
-            
+
             await _commands.ExecuteAsync(
                 context: context,
                 argPos: argPos,
