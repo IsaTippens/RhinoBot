@@ -76,6 +76,12 @@ namespace RhinoBot.Services
                     await messageParam.Channel.SendMessageAsync("OwO doggo");
                     return;
                 }
+                
+                if (msg.Contains("gme") || msg.Contains("$gme"))
+                {
+                    await messageParam.Channel.SendMessageAsync("HOLD THE LINE!!🚀");
+                    return;
+                }
 
                 if (Regex.IsMatch(msg, @"\bim\b"))
                 {
