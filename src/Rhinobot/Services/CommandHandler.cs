@@ -106,6 +106,18 @@ namespace RhinoBot.Services
                         return;
                     }
                 }
+
+               if (Regex.IsMatch(msg, @"\bi am\b"))
+                {
+                    Regex rx = new Regex(@"\bi am\b");
+                    foreach (Match m in rx.Matches(msg))
+                    {
+                        int i = m.Index;
+                        var result = msg.Substring(i + 5);
+                        await messageParam.Channel.SendMessageAsync("Hi " + result);
+                        return;
+                    }
+                }
             }
 
             int argPos = 0;
