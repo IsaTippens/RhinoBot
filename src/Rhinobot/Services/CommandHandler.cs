@@ -76,6 +76,12 @@ namespace RhinoBot.Services
                     await messageParam.Channel.SendMessageAsync("OwO doggo");
                     return;
                 }
+                
+                if (msg.Contains("gme") || msg.Contains("$gme"))
+                {
+                    await messageParam.Channel.SendMessageAsync("HOLD THE LINE!!🚀");
+                    return;
+                }
 
                 if (Regex.IsMatch(msg, @"\bim\b"))
                 {
@@ -96,6 +102,18 @@ namespace RhinoBot.Services
                     {
                         int i = m.Index;
                         var result = msg.Substring(i + 4);
+                        await messageParam.Channel.SendMessageAsync("Hi " + result);
+                        return;
+                    }
+                }
+
+               if (Regex.IsMatch(msg, @"\bi am\b"))
+                {
+                    Regex rx = new Regex(@"\bi am\b");
+                    foreach (Match m in rx.Matches(msg))
+                    {
+                        int i = m.Index;
+                        var result = msg.Substring(i + 5);
                         await messageParam.Channel.SendMessageAsync("Hi " + result);
                         return;
                     }
