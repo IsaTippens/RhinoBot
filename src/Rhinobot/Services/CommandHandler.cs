@@ -41,7 +41,7 @@ namespace RhinoBot.Services
 
 
             var msg = messageParam.Content.ToLower();
-            if (Randomiser.NextInt(8) >= 5)
+            if (Randomiser.NextInt(1000) >= 800)
             {
 
                 if (msg.Contains("i'm down") || msg.Contains("im down") || msg.Contains("i am down"))
