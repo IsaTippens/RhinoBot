@@ -30,6 +30,6 @@ public class ParrotModule : ModuleBase<SocketCommandContext>
             return;
         }
         //await msg.AddReactionAsync(new Emoji("💛"));
-        await ReplyAsync($"{user.Username}#{user.Discriminator} {message}");
+        await ReplyAsync($"@{user.Username}#{user.Discriminator} {message}");
     }
 }
