@@ -37,9 +37,10 @@ namespace RhinoBot.Services
         private async Task HandleCommandAsync(SocketMessage messageParam)
         {
             var message = messageParam as SocketUserMessage;
-            if (message == null || message.Author.IsBot) return;
+            int slavebotid = 817335715993747467;
+            if ((message == null) || (message.Author.IsBot && message.Author.Id != slavebotid)) return;
 
-
+            
             var msg = messageParam.Content.ToLower();
             if (Randomiser.NextInt(1000) >= 800)
             {
