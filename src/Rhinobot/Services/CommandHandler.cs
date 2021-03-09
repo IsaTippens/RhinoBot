@@ -37,7 +37,7 @@ namespace RhinoBot.Services
         private async Task HandleCommandAsync(SocketMessage messageParam)
         {
             var message = messageParam as SocketUserMessage;
-            ulong slavebotid = 817335715993747467;
+            var slavebotid = 817335715993747467;
             if ((message == null) || (message.Author.IsBot && message.Author.Id != slavebotid)) return;
 
             
