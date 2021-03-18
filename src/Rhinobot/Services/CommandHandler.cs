@@ -43,7 +43,7 @@ namespace RhinoBot.Services
             
             var msg = messageParam.Content.ToLower();
             int r = Randomiser.NextInt(1000);
-            if (r <= 777 && r >= 725)
+            if (r <= 777 && r >= 700)
             {
 
                 if (msg.Contains("i'm down") || msg.Contains("im down") || msg.Contains("i am down"))
@@ -82,6 +82,12 @@ namespace RhinoBot.Services
                 if (msg.Contains("gme") || msg.Contains("$gme"))
                 {
                     await messageParam.Channel.SendMessageAsync("HOLD THE LINE!!🚀");
+                    return;
+                }
+                
+                if (msg.Contains("town"))
+                {
+                    await messageParam.Channel.SendMessageAsync("FunkY TOWN");
                     return;
                 }
 
